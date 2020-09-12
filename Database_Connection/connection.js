@@ -1,9 +1,7 @@
 const mongooes = require("mongoose");
+require("dotenv/config");
 
-const uri =
-  "mongodb+srv://admin:mongoadmin@cluster0.d4qsl.mongodb.net/testdb?retryWrites=true&w=majority";
-
-mongooes.connect(uri, {
+mongooes.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
