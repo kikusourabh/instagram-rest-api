@@ -1,0 +1,29 @@
+{
+  "name": "instagram-rest-api",
+  "version": "1.0.0",
+  "description": "this is the node js instagram rest api",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kikusourabh/instagram-rest-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "instagram",
+    "rest-api"
+  ],
+  "author": "karmakar sourov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kikusourabh/instagram-rest-api/issues"
+  },
+  "homepage": "https://github.com/kikusourabh/instagram-rest-api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.5",
+    "nodemon": "^2.0.4"
+  }
+}
