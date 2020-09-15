@@ -8,26 +8,28 @@ router.get("/", (req, res) => {
 
 router.post("/register_user", async (req, res) => {
   try {
-    const { uname, email, password } = req.body;
-    if (!uname || !email || !password) {
+    const { username, email, password } = req.body;
+    if (!username || !email || !password) {
+
       res.send({
         error: "bad request",
       });
     } else {
-      const userExist = await user.findOne({ uname: uname, email: email });
+      const userExist = await user.findOne({ username: username, email: email });
       if (userExist) {
+
         res.send({
           error: "user already exist",
         });
       } else {
-        jwt.sign(uname, password, async (error, token) => {
+        jwt.sign(username, password, async (error, token) => {
           if (error) {
             res.send({
               error: "token generation error : " + error,
             });
           } else {
             const User = new user({
-              uname: uname,
+              username: username,
               email: email,
               password: password,
               token: token
@@ -42,6 +44,8 @@ router.post("/register_user", async (req, res) => {
       }
     }
   } catch (error) {
+
+
     res.send({
       error: "some thing went wrong",
     });
