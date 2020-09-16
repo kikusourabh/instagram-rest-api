@@ -51,4 +51,31 @@ router.post("/register_user", async (req, res) => {
     });
   }
 });
+
+router.post("/login_", async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    if (!username || !password) {
+      res.send({
+        error: "bad request",
+      });
+    } else {
+      const userExist = await user.findOne({ username, password });
+      if (userExist) {
+        res.send({
+          msg: "Login successfully",
+          token: userExist.token
+        });
+      } else {
+        res.send({
+          error: "youre credentials are incorrect",
+        });
+      }
+    }
+  } catch (error) {
+    res.send({
+      error: `some thing went wrong ${error}`,
+    });
+  }
+});
 module.exports = router;
